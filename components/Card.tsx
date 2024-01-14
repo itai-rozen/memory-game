@@ -4,7 +4,7 @@ import styles from './../styles';
 import FlipCard from 'react-native-flip-card';
 import images from './../images'
 import type imagesType from './../images'
-export default function Card({imgKey } : { imgKey: string} ) {
+export default function Card({imgKey } : { imgKey: ImageSourcePropType} ) {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const handleFlip = () => setIsFlipped(!isFlipped);
   console.log('image! ', imgKey)
@@ -21,7 +21,7 @@ export default function Card({imgKey } : { imgKey: string} ) {
            >
         <View style={styles.ImageContainer}>
           <View style={styles.CardImage}>
-            <Image style={styles.Img}  source={images[imgKey] } />
+            <Image style={styles.Img}  source={imgKey} />
           </View>
         </View>
         <View style={styles.ImageContainer}>
