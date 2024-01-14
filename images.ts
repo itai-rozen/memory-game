@@ -14,6 +14,13 @@ const images : imagesType   = {
   4 : require('./assets/4.jpg'),
   5 : require('./assets/5.jpg'),
 };
+export const imagesArr  = [
+  require('./assets/1.jpg'),
+  require('./assets/2.jpg'),
+  require('./assets/3.jpg'),
+  require('./assets/4.jpg'),
+  require('./assets/5.jpg'),
+];
 export default images
 // 6 : require('./assets/6.jpg'),
 // 7 : require('./assets/7.jpg'),
