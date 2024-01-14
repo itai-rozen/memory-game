@@ -1,10 +1,13 @@
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, ImageSourcePropType } from 'react-native';
 import { useState } from 'react';
 import styles from './../styles';
 import FlipCard from 'react-native-flip-card';
-export default function Card() {
+import images from './../images'
+import type imagesType from './../images'
+export default function Card({imgKey } : { imgKey: string} ) {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const handleFlip = () => setIsFlipped(!isFlipped);
+  console.log('image! ', imgKey)
   return (
     <TouchableOpacity onPress={handleFlip}>
 
@@ -18,16 +21,15 @@ export default function Card() {
            >
         <View style={styles.ImageContainer}>
           <View style={styles.CardImage}>
-            <Image width={20} source={require('./../assets/papa.jpg')} />
+            <Image style={styles.Img}  source={images[imgKey] } />
           </View>
         </View>
         <View style={styles.ImageContainer}>
           <View style={styles.CardImage}>
-            <Image width={100} source={require('./../assets/card-back.jpg')} />
+            <Image  style={styles.Img} source={require('./../assets/card-back.jpg')} />
           </View>
         </View>
       </FlipCard>
-      <Text>YO</Text>
     </TouchableOpacity>
 
   )
