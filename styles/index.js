@@ -11,13 +11,12 @@ const globals = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 30,
   },
 
   Card: {
     width: 300,
     height: 200,
-    borderRadius: 30,
+    borderRadius: 10,
     backgroundColor: 'grey',
 
     // To prevent shadow from overflowing 
@@ -36,10 +35,16 @@ const globals = StyleSheet.create({
 
   },
   CardImage: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // borderRadius: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+
   },
+  Img : {
+    width: 100,
+    height: 200,
+    resizeMode: 'cover'
+  }
 })
 
 export default globals;
