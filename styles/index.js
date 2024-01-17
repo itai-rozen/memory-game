@@ -71,6 +71,12 @@ const globals = StyleSheet.create({
   },
   Message: {
     fontSize: 60,
+  },
+  FrontSide: {
+    position: 'absolute'
+  },
+  BackSide: {
+    backfaceVisibility: 'hidden'
   }
 })
 
