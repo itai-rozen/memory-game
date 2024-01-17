@@ -51,13 +51,26 @@ const globals = StyleSheet.create({
     borderRadius: 4
   },
   Cards: {
-    backgroundColor: 'red',
+    backgroundColor: 'purple',
     flex: 1,
     flexDirection:'row',
     justifyContent:'flex-start',
     flexWrap: 'wrap',
     width:'100%',
-    height:'100%'
+    height:'100%',
+    position:'relative'
+  },
+  MessageContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    width: '100%',
+    height:'100%',
+  },
+  Message: {
+    fontSize: 60,
   }
 })
 
