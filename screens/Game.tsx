@@ -5,25 +5,13 @@ import styles from './../styles'
 import cardObjects from './../images'
 import { useState, useEffect } from "react";
 import type { imagesType } from "./../images";
+import CardTest from "../components/CardTest";
 export default function Game() {
 
   const [cards, setCards] = useState<imagesType[]>([])
   const [msg, setMsg] = useState<string>('')
 
-
-  const updateCards = (id1: number, id2: number, success: boolean): void => {
-    const updatedCards = cards.map(card => {
-      return [id1, id2].includes(card.id ?? -1) ?
-        Object.assign(card, success ?
-          { isMatched: true } :
-          { isFlipped: false }
-        ) :
-        card
-    })
-    setCards(updatedCards);
-    setMsg(success ? 'success' : 'wrong');
-    setTimeout(() => { setMsg('') }, 2000)
-  }
+  const initGame = () => setCards([]);
 
   const updateCards2 = (prop : string, success : boolean, id1 : number, id2 : number|null = null) => {
     const cardIds = id2 ? [id1,id2] : [id1];
@@ -33,12 +21,20 @@ export default function Game() {
     setCards(updatedCards)
   }
 
+  const popMessage = (message : string, interval: number) => {
+    setMsg(message)
+    setTimeout(() => {
+      setMsg('')
+    }, interval)
+  }
+
   useEffect(() => {
     if (!cards.length)
       setCards(cardObjects.sort(() => Math.random() - 0.5))
 
-    const allMatched = cards.every(card => card.isMatched)
+    const allMatched = cards.length && cards.every(card => card.isMatched)
     if (allMatched) {
+      setMsg('again?')
       // end game
     }
     const flippedImages = cards.filter(obj => obj.isFlipped && !obj.isMatched);
@@ -48,15 +44,11 @@ export default function Game() {
       const { id: id2 } = flippedImages[1]
       if (flippedImages[0].url === flippedImages[1].url) {
         updateCards2('isMatched', true, id1, id2)
-        setMsg('success')
-        setTimeout(() => {
-          setMsg('')
-        }, 2000)
+        popMessage('success', 2000);
       } else {
-        setMsg('wrong')
+        popMessage('wrong', 2000)
         setTimeout(() => {
           updateCards2('isFlipped', false, id1, id2)
-          setMsg('')
         }, 2000)
       }
     }
@@ -65,12 +57,12 @@ export default function Game() {
   return (<>
     <View style={styles.Cards}>
       {
-        cards.map((cardObj,i) => (
-          <Card key={cardObj.id+''+i} cardObj={cardObj} setCards={setCards} cards={cards} />
+        cards.map((cardObj) => (
+          <CardTest key={cardObj.id} cardObj={cardObj} setCards={setCards} cards={cards} />
         ))
       }
       {msg && <View style={styles.MessageContainer}>
-          <Message msg={msg} color='yellow' />
+          <Message msg={msg} color='yellow' onInit={initGame} />
         </View>
             }
     </View>
