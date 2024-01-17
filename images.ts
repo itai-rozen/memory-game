@@ -4,12 +4,12 @@ import type { ImageSourcePropType } from "react-native";
 
 export type imagesType = {
   url: ImageSourcePropType,
-  id?: number
-  isFlipped?: boolean,
-  isMatched?: boolean,
+  id: number
+  isFlipped: boolean,
+  isMatched: boolean,
 };
 
-const imagesArr : imagesType[]  = [
+const imagesArr  = [
   {
     url: require('./assets/1.jpg'),
   },
@@ -26,4 +26,19 @@ const imagesArr : imagesType[]  = [
     url: require('./assets/5.jpg'),
   },
 ]
-export default [...imagesArr,...imagesArr].map((card,i) => Object.assign(card, {id: i+1,isFlipped: false, isMatched: false}))
+const doubleImages = [...imagesArr,...imagesArr]
+const cardObjects : imagesType[] = [];
+for (let i = 0; i < doubleImages.length; i++) {
+  const image = doubleImages[i].url
+  cardObjects.push({
+    url: image,
+    id: i,
+    isFlipped: false, 
+    isMatched: false
+  })
+}
+// doubleImages.forEach((card,i) => {
+//   Object.assign(card, {id: i, isFlipped: false, isMatched: false})
+// })
+// console.log('images:!!!!!!!! \n ', cardObjects)
+export default  cardObjects
