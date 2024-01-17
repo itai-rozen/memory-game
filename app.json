@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "memory-game",
-    "slug": "memory-game",
+    "slug": "family-memory-game",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "38586d46-c576-4dab-97eb-f5b6de69a292"
+      }
+    },
+    "owner": "pitzko"
   }
 }
