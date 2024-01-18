@@ -77,7 +77,17 @@ const globals = StyleSheet.create({
   },
   BackSide: {
     backfaceVisibility: 'hidden'
+  },
+  HomeBtn: {
+    width: '70%',
+    margin: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: 'coral',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
+
 })
 
 export default globals;
