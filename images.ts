@@ -9,21 +9,21 @@ export type imagesType = {
   isMatched: boolean,
 };
 
-const imagesArr  = [
+export const imagesArr  = [
   {
-    url: require('./assets/1.jpg'),
+    url: require('./assets/game-images/1.jpg'),
   },
   {
-    url: require('./assets/2.jpg'),
+    url: require('./assets/game-images/2.jpg'),
   },
   {
-    url: require('./assets/3.jpg'),
+    url: require('./assets/game-images/3.jpg'),
   },
   {
-    url: require('./assets/4.jpg'),
+    url: require('./assets/game-images/4.jpg'),
   },
   {
-    url: require('./assets/5.jpg'),
+    url: require('./assets/game-images/5.jpg'),
   },
 ]
 const doubleImages = [...imagesArr,...imagesArr]
