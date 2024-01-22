@@ -51,3 +51,8 @@ for (let i = 0; i < doubleImages.length; i++) {
 }
 
 export default  cardObjects
+export const gameStatus: {fail: ImageSourcePropType,success: ImageSourcePropType, win: ImageSourcePropType}  = {
+  fail: require('./assets/game-status/fail.png'),
+  success: require('./assets/game-status/success.png'),
+  win: require('./assets/game-status/win.png'),
+}
