@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, StatusBar } from "react-native";
 
 const globals = StyleSheet.create({
   container: {
@@ -7,16 +7,10 @@ const globals = StyleSheet.create({
     justifyContent: 'center', 
     margin: 30, 
   },
-  CardContainer: {
-    margin: 5,
-    height: 2,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
 
   Card: {
-    width: 100,
-    height: 200,
+    width: '17%',
+    height: '20%',
     borderRadius: 10,
     backgroundColor: 'grey',
     margin: 4,
@@ -24,25 +18,15 @@ const globals = StyleSheet.create({
     overflow: 'hidden',
   },
   Shadow: {
-    shadowColor: '#000',
-    shadowOpacity: 1,
+    shadowColor: '#fff',
+  shadowOpacity: 10,
     shadowRadius: 15,
-    shadowOffset: { width: 0, height:0 },
+    shadowOffset: { width: 1, height:15 },
   },
   ImageContainer: {
     flex: 1,
-    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-
-  },
-  CardImage: {
-    width: 100,
-    height: 200,
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-
   },
   Img : {
     width: '100%',
@@ -72,12 +56,6 @@ const globals = StyleSheet.create({
   Message: {
     fontSize: 60,
   },
-  FrontSide: {
-    position: 'absolute'
-  },
-  BackSide: {
-    backfaceVisibility: 'hidden'
-  },
   HomeBtn: {
     width: '70%',
     margin: 20,
@@ -91,3 +69,7 @@ const globals = StyleSheet.create({
 })
 
 export default globals;
+
+export const AndroidSafeView = {
+  paddingTop: (Platform.OS === 'android') ? StatusBar.currentHeight : 0
+}
