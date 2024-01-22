@@ -7,10 +7,10 @@ import { useState, useEffect } from "react";
 import type { imagesType } from "./../images";
 import CardTest from "../components/CardTest";
 export default function Game() {
-
+  type messageType = 'win'|'success'|'fail'|undefined;
   const [cards, setCards] = useState<imagesType[]>([])
   const [pressable, setPressabe] = useState<boolean>(true)
-  const [msg, setMsg] = useState<string>('')
+  const [msg, setMsg] = useState<messageType>(undefined)
 
   const initGame = () => setCards([]);
 
@@ -22,10 +22,10 @@ export default function Game() {
     setCards(updatedCards)
   }
 
-  const popMessage = (message : string, interval: number) => {
+  const popMessage = (message : messageType, interval: number) => {
     setMsg(message)
     setTimeout(() => {
-      setMsg('')
+      setMsg(undefined)
     }, interval)
   }
 
@@ -35,7 +35,7 @@ export default function Game() {
 
     const allMatched = cards.length && cards.every(card => card.isMatched)
     if (allMatched) {
-      setMsg('again?')
+      setMsg('win')
       // end game
     }
     const flippedImages = cards.filter(obj => obj.isFlipped && !obj.isMatched);
@@ -47,7 +47,7 @@ export default function Game() {
         updateCards('isMatched', true, id1, id2)
         popMessage('success', 2000);
       } else {
-        popMessage('wrong', 2000)
+        popMessage('fail', 2000)
         setTimeout(() => {
           updateCards('isFlipped', false, id1, id2)
         }, 2000)
