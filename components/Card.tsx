@@ -2,11 +2,11 @@ import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { imagesType } from '../images';
 import styles from './../styles';
 import FlipCard from 'react-native-flip-card';
-export default function Card({ cardObj, setCards, cards }:
-  { cardObj: imagesType, setCards: Function, cards: imagesType[] }) {
+export default function Card({ cardObj, setCards, cards, pressable }:
+  { cardObj: imagesType, setCards: Function, cards: imagesType[], pressable: boolean }) {
 
   const handleFlip = () => {
-    if (cardObj.isMatched)
+    if (cardObj.isMatched || !pressable)
       return;
     const updatedCards = cards.map(card => {
       if (card.id === cardObj.id) {

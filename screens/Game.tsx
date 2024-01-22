@@ -1,7 +1,7 @@
 import Card from "../components/Card";
 import Message from "../components/Message";
-import { View, Text } from "react-native";
-import styles from './../styles'
+import { View, SafeAreaView, StatusBar } from "react-native";
+import styles , {AndroidSafeView} from './../styles'
 import cardObjects from './../images'
 import { useState, useEffect } from "react";
 import type { imagesType } from "./../images";
@@ -9,6 +9,7 @@ import CardTest from "../components/CardTest";
 export default function Game() {
 
   const [cards, setCards] = useState<imagesType[]>([])
+  const [pressable, setPressabe] = useState<boolean>(true)
   const [msg, setMsg] = useState<string>('')
 
   const initGame = () => setCards([]);
@@ -28,8 +29,6 @@ export default function Game() {
     }, interval)
   }
 
-
-
   useEffect(() => {
     if (!cards.length)
       setCards(cardObjects.sort(() => Math.random() - 0.5))
@@ -40,8 +39,8 @@ export default function Game() {
       // end game
     }
     const flippedImages = cards.filter(obj => obj.isFlipped && !obj.isMatched);
-    console.log('flipped cards: ', flippedImages)
     if (flippedImages.length > 1) {
+      setPressabe(false)
       const { id: id1 } = flippedImages[0]
       const { id: id2 } = flippedImages[1]
       if (flippedImages[0].url === flippedImages[1].url) {
@@ -53,14 +52,16 @@ export default function Game() {
           updateCards('isFlipped', false, id1, id2)
         }, 2000)
       }
+    } else {
+      setPressabe(true)
     }
   }, [cards])
 
   return (<>
-    <View style={styles.Cards}>
+    <SafeAreaView style={[styles.Cards, AndroidSafeView]}>
       {
         cards.map((cardObj) => (
-          <Card key={cardObj.id}  cardObj={cardObj} setCards={setCards} cards={cards} />
+          <Card key={cardObj.id} pressable={pressable}  cardObj={cardObj} setCards={setCards} cards={cards} />
         ))
       }
       {
@@ -69,7 +70,7 @@ export default function Game() {
           <Message msg={msg} color='yellow' onInit={initGame} />
         </View>
       )}
-    </View>
+    </SafeAreaView>
 
   </>
   )
