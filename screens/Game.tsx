@@ -13,7 +13,7 @@ export default function Game() {
 
   const initGame = () => setCards([]);
 
-  const updateCards2 = (prop : string, success : boolean, id1 : number, id2 : number|null = null) => {
+  const updateCards = (prop : string, success : boolean, id1 : number, id2 : number|null = null) => {
     const cardIds = id2 ? [id1,id2] : [id1];
     const updatedCards = cards.map(card => {
       return cardIds.includes(card.id) ? Object.assign(card, {[prop] : success}) : card
@@ -43,12 +43,12 @@ export default function Game() {
       const { id: id1 } = flippedImages[0]
       const { id: id2 } = flippedImages[1]
       if (flippedImages[0].url === flippedImages[1].url) {
-        updateCards2('isMatched', true, id1, id2)
+        updateCards('isMatched', true, id1, id2)
         popMessage('success', 2000);
       } else {
         popMessage('wrong', 2000)
         setTimeout(() => {
-          updateCards2('isFlipped', false, id1, id2)
+          updateCards('isFlipped', false, id1, id2)
         }, 2000)
       }
     }
