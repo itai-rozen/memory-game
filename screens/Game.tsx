@@ -28,6 +28,8 @@ export default function Game() {
     }, interval)
   }
 
+
+
   useEffect(() => {
     if (!cards.length)
       setCards(cardObjects.sort(() => Math.random() - 0.5))
@@ -58,13 +60,15 @@ export default function Game() {
     <View style={styles.Cards}>
       {
         cards.map((cardObj) => (
-          <CardTest key={cardObj.id} cardObj={cardObj} setCards={setCards} cards={cards} />
+          <Card key={cardObj.id}  cardObj={cardObj} setCards={setCards} cards={cards} />
         ))
       }
-      {msg && <View style={styles.MessageContainer}>
+      {
+      msg && (
+        <View style={styles.MessageContainer}>
           <Message msg={msg} color='yellow' onInit={initGame} />
         </View>
-            }
+      )}
     </View>
 
   </>
