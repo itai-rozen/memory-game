@@ -25,6 +25,18 @@ export const imagesArr  = [
   {
     url: require('./assets/game-images/5.jpg'),
   },
+  {
+    url: require('./assets/game-images/6.jpg'),
+  },
+  {
+    url: require('./assets/game-images/7.jpg'),
+  },
+  {
+    url: require('./assets/game-images/8.jpg'),
+  },
+  {
+    url: require('./assets/game-images/9.jpg'),
+  },
 ]
 const doubleImages = [...imagesArr,...imagesArr]
 const cardObjects : imagesType[] = [];
@@ -37,8 +49,5 @@ for (let i = 0; i < doubleImages.length; i++) {
     isMatched: false
   })
 }
-// doubleImages.forEach((card,i) => {
-//   Object.assign(card, {id: i, isFlipped: false, isMatched: false})
-// })
-// console.log('images:!!!!!!!! \n ', cardObjects)
+
 export default  cardObjects
