@@ -10,9 +10,8 @@ const globals = StyleSheet.create({
 
   Card: {
     width: '17%',
-    height: '20%',
+    height: '18%',
     borderRadius: 10,
-    backgroundColor: 'grey',
     margin: 4,
     // To prevent shadow from overflowing 
     overflow: 'hidden',
@@ -38,7 +37,7 @@ const globals = StyleSheet.create({
     backgroundColor: 'purple',
     flex: 1,
     flexDirection:'row',
-    justifyContent:'flex-start',
+    justifyContent:'center',
     flexWrap: 'wrap',
     width:'100%',
     height:'100%',
