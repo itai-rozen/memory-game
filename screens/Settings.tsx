@@ -1,100 +1,45 @@
-import {  Text, View, Platform, TouchableOpacity } from "react-native";
+import {  Text, View, Platform, TouchableOpacity, ImageSourcePropType, Image, FlatList, ScrollView } from "react-native";
 import styles from './../styles'
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { imagesArr } from "../images";
-import { useState, useEffect, FormEvent } from "react";
-import * as FS from 'expo-file-system'
-import * as DocumentPicker from 'react-native-document-picker';
-console.log('document: ', FS.bundleDirectory)
+import { useState, useEffect } from "react";
+import * as DocumentPicker from 'expo-document-picker';
+import * as FS from 'expo-file-system';
+
+import { Asset, useAssets } from "expo-asset";
+console.log('bundle dir: ', FS.bundleDirectory)
+console.log('document dir: ', FS.documentDirectory)
 // const [gameImages, setGameImages] = useState<any[]>([]);
 
 
 export default function Settings({ navigation }: { navigation: NavigationProp<ParamListBase>}) {
   const [singleFile, setSingleFile] = useState<any|null>(null)
-  const selectFile = async () => {
-    // Opening Document Picker to select one file
-    try {
-      const res = await DocumentPicker.pick({
-        // Provide which type of file you want user to pick
-        type: [Platform.OS === 'ios' ? 'public.jpg' : 'image/jpeg'],
-        // There can me more options as well
-        // DocumentPicker.types.allFiles
-        // DocumentPicker.types.images
-        // DocumentPicker.types.plainText
-        // DocumentPicker.types.audio
-        // DocumentPicker.types.pdf
-      });
-      // Printing the log realted to the file
-      console.log('res : ' + JSON.stringify(res));
-      // Setting the state to show single file attributes
-      setSingleFile(res);
-    } catch (err) {
-      setSingleFile(null);
-      // Handling any exception (If any)
-      if (DocumentPicker.isCancel(err)) {
-        // If user canceled the document selection
-        alert('Canceled');
-      } else {
-        // For Unknown Error
-        alert('Unknown Error: ' + JSON.stringify(err));
-        throw err;
-      }
-    }
-  };
+  const [assets, error] = useAssets(imagesArr.map(img => img.url))
 
-  const uploadImage = async () => {
-    // Check if any file is selected or not
-    if (singleFile != null) {
-      // If file selected then create FormData
-      const fileToUpload = singleFile;
-      const data = new FormData();
-      data.append('name', 'Image Upload');
-      data.append('file_attachment', fileToUpload);
-      // Please change file upload URL
-      let res = await fetch(
-        'http://localhost/upload.php',
-        {
-          method: 'post',
-          body: data,
-          headers: {
-            'Content-Type': 'multipart/form-data; ',
-          },
-        }
-      );
-      let responseJson = await res.json();
-      if (responseJson.status == 1) {
-        alert('Upload Successful');
-      }
-    } else {
-      // If no file selected the show alert
-      alert('Please Select File first');
-    }
-  };
+  const uploadImg = async (imageName) => {
+    console.log('image name: ', imageName)
+    const pickedFile = await DocumentPicker.getDocumentAsync({type: 'image/jpeg'});
+    console.log('picked: ', pickedFile)
+  }
+  useEffect(() => {
+  console.log('assets: ', assets)
 
+  }, [assets])
   return (
     <View style={styles.container}>
-      {singleFile != null ? (
-        <Text >
-          File Name: {singleFile.name ? singleFile.name : ''}
-          {'\n'}
-          Type: {singleFile.type ? singleFile.type : ''}
-          {'\n'}
-          File Size: {singleFile.size ? singleFile.size : ''}
-          {'\n'}
-          URI: {singleFile.uri ? singleFile.uri : ''}
-          {'\n'}
-        </Text>
-      ) : null}
-            <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={selectFile}>
-        <Text>Select File</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={uploadImage}>
-        <Text>Upload File</Text>
-      </TouchableOpacity>
+      <Text>hi</Text>
+      <ScrollView>
+      {
+        imagesArr.length && imagesArr.map(img => (
+          <View key={img.url}>
+          <Image width={10} height={50} source={img.url} />
+          <TouchableOpacity onPress={() => uploadImg(img.url)}>
+            <Text style={{}}>set new image instead</Text>
+          </TouchableOpacity>
+          </View>
+        ))
+      }
+      </ScrollView>
     </View>
   )
 }
