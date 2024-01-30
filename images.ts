@@ -37,6 +37,9 @@ export const imagesArr  = [
   {
     url: require('./assets/game-images/9.jpg'),
   },
+  {
+    url: require('./assets/game-images/10.jpg'),
+  },
 ]
 const doubleImages = [...imagesArr,...imagesArr]
 const cardObjects : imagesType[] = [];
