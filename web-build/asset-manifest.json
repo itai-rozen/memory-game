@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/static/js/main.0699e853.js",
+    "static/js/190.bf8b9608.js": "/static/js/190.bf8b9608.js",
+    "static/media/3.jpg": "/static/media/3.b538c8d46f4752b7f791.jpg",
+    "static/media/2.jpg": "/static/media/2.b3dedc982a00e3eda010.jpg",
+    "static/media/9.jpg": "/static/media/9.1870ed56b73b5fc2000e.jpg",
+    "static/media/8.jpg": "/static/media/8.bc189c97085e09324522.jpg",
+    "static/media/1.jpg": "/static/media/1.d2620fda081ea845a46a.jpg",
+    "static/media/6.jpg": "/static/media/6.88c7cec77ff086a8ea31.jpg",
+    "static/media/4.jpg": "/static/media/4.9bfa1a1d1d0bba58bec6.jpg",
+    "static/media/7.jpg": "/static/media/7.0cf635a21744133856b6.jpg",
+    "static/media/5.jpg": "/static/media/5.2180ef434c9056bbf37e.jpg",
+    "static/media/card-back.jpg": "/static/media/card-back.eead361ac9effbb1db03.jpg",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "static/media/win.png": "/static/media/win.f0b540f206f99f7961ec.png",
+    "static/media/success.png": "/static/media/success.588d15781a14f6864965.png",
+    "static/media/fail.png": "/static/media/fail.15a9afc3bf5789235c3d.png",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "serve.json": "/serve.json",
+    "manifest.json": "/manifest.json",
+    "main.0699e853.js.map": "/static/js/main.0699e853.js.map",
+    "190.bf8b9608.js.map": "/static/js/190.bf8b9608.js.map"
+  },
+  "entrypoints": [
+    "static/js/190.bf8b9608.js",
+    "static/js/main.0699e853.js"
+  ]
+}
