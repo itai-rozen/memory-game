@@ -1,45 +1,17 @@
 
-import type { ImageSourcePropType } from "react-native";
-
-
-export type imagesType = {
-  url: ImageSourcePropType,
-  id: number
-  isFlipped: boolean,
-  isMatched: boolean,
-};
+import type { imagesType, gameStatusType } from "./types";
 
 export const imagesArr  = [
-  {
-    url: require('./assets/game-images/1.jpg'),
-  },
-  {
-    url: require('./assets/game-images/2.jpg'),
-  },
-  {
-    url: require('./assets/game-images/3.jpg'),
-  },
-  {
-    url: require('./assets/game-images/4.jpg'),
-  },
-  {
-    url: require('./assets/game-images/5.jpg'),
-  },
-  {
-    url: require('./assets/game-images/6.jpg'),
-  },
-  {
-    url: require('./assets/game-images/7.jpg'),
-  },
-  {
-    url: require('./assets/game-images/8.jpg'),
-  },
-  {
-    url: require('./assets/game-images/9.jpg'),
-  },
-  {
-    url: require('./assets/game-images/10.jpg'),
-  },
+  {url: require('./assets/game-images/1.jpg')},
+  {url: require('./assets/game-images/2.jpg')},
+  {url: require('./assets/game-images/3.jpg')},
+  {url: require('./assets/game-images/4.jpg')},
+  {url: require('./assets/game-images/5.jpg')},
+  {url: require('./assets/game-images/6.jpg')},
+  {url: require('./assets/game-images/7.jpg')},
+  {url: require('./assets/game-images/8.jpg')},
+  {url: require('./assets/game-images/9.jpg')},
+  {url: require('./assets/game-images/10.jpg')},
 ]
 
 export const getImages = (num : number) => {
@@ -54,14 +26,13 @@ export const getImages = (num : number) => {
       isMatched: false
     })
   }
-
   return cardObjects
 }
 
 
-// export default  cardObjects
-export const gameStatus: {fail: ImageSourcePropType,success: ImageSourcePropType, win: ImageSourcePropType}  = {
+export const gameStatus: gameStatusType  = {
   fail: require('./assets/game-status/fail.png'),
   success: require('./assets/game-status/success.png'),
-  win: require('./assets/game-status/win.png'),
+  win: require('./assets/game-status/win.gif'),
+  test: require('./assets/game-status/win.png')
 }
