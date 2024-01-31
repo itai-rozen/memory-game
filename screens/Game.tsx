@@ -2,15 +2,18 @@ import Card from "../components/Card";
 import Message from "../components/Message";
 import { View, SafeAreaView, StatusBar } from "react-native";
 import styles , {AndroidSafeView} from './../styles'
-import cardObjects from './../images'
+import { getImages } from './../images'
 import { useState, useEffect } from "react";
 import type { imagesType } from "./../images";
 import CardTest from "../components/CardTest";
+import { useCardsPairStore } from "../store";
 export default function Game() {
   type messageType = 'win'|'success'|'fail'|undefined;
-  const [cards, setCards] = useState<imagesType[]>([])
-  const [pressable, setPressabe] = useState<boolean>(true)
-  const [msg, setMsg] = useState<messageType>(undefined)
+  const [cards, setCards] = useState<imagesType[]>([]);
+  const [pressable, setPressabe] = useState<boolean>(true);
+  const [msg, setMsg] = useState<messageType>(undefined);
+
+  const pairs = useCardsPairStore(state => state.pairs);
 
   const initGame = () => setCards([]);
 
@@ -31,11 +34,12 @@ export default function Game() {
 
   useEffect(() => {
     if (!cards.length)
-      setCards(cardObjects.sort(() => Math.random() - 0.5))
+      setCards(getImages(pairs).sort(() => Math.random() - 0.5))
 
     const allMatched = cards.length && cards.every(card => card.isMatched)
     if (allMatched) {
       setMsg('win')
+      return
       // end game
     }
     const flippedImages = cards.filter(obj => obj.isFlipped && !obj.isMatched);
