@@ -33,6 +33,5 @@ export const getImages = (num : number) => {
 export const gameStatus: gameStatusType  = {
   fail: require('./assets/game-status/fail.png'),
   success: require('./assets/game-status/success.png'),
-  win: require('./assets/game-status/win.gif'),
-  test: require('./assets/game-status/win.png')
+  win: require('./assets/game-status/win.gif')
 }

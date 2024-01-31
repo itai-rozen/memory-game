@@ -12,9 +12,8 @@ export type gameStatusType = {
   success: ImageSourcePropType,
   win: ImageSourcePropType,
   fail: ImageSourcePropType,
-  test: ImageSourcePropType
 }
-export type messageType = 'win'|'success'|'fail'|undefined|'test';
+export type messageType = 'win'|'success'|'fail'|undefined;
 
 export type cardPairsStore = {
   pairs : number,
