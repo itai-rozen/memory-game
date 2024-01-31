@@ -1,4 +1,4 @@
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, Pressable } from 'react-native';
 import { imagesType } from '../images';
 import styles from './../styles';
 import FlipCard from 'react-native-flip-card';
@@ -17,7 +17,7 @@ export default function Card({ cardObj, setCards, cards, pressable }:
     setCards(updatedCards)
   }
   return (
-    <TouchableOpacity style={[styles.Card, styles.Shadow]} onPress={handleFlip}>
+    <Pressable style={[styles.Card, styles.Shadow]} onPress={handleFlip}>
       <FlipCard
         friction={6}
         perspective={1000}
@@ -34,6 +34,6 @@ export default function Card({ cardObj, setCards, cards, pressable }:
         </View>
 
       </FlipCard>
-    </TouchableOpacity>
+    </Pressable>
   )
 }

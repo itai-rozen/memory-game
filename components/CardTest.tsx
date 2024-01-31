@@ -1,4 +1,4 @@
-import { Animated, View, Image, TouchableOpacity } from "react-native";
+import { Animated, View, Image, Pressable } from "react-native";
 import styles from './../styles'
 import { imagesType } from "../images";
 
@@ -17,7 +17,7 @@ export default function CardTest({ cardObj, setCards, cards }: { cardObj: images
     setCards(updatedCards)
   }
   return (<>
-    <TouchableOpacity style={[styles.Card, styles.Shadow]} onPress={handleFlip}>
+    <Pressable style={[styles.Card, styles.Shadow]} onPress={handleFlip}>
       {
         cardObj.isFlipped ? <>
           <View style={[styles.ImageContainer]}>
@@ -35,6 +35,6 @@ export default function CardTest({ cardObj, setCards, cards }: { cardObj: images
           </View>
         </>
       }
-    </TouchableOpacity>
+    </Pressable>
   </>)
 }
