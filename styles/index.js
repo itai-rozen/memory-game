@@ -18,9 +18,9 @@ const globals = StyleSheet.create({
   },
   Shadow: {
     shadowColor: '#fff',
-  shadowOpacity: 10,
+    shadowOpacity: 10,
     shadowRadius: 15,
-    shadowOffset: { width: 1, height:15 },
+    shadowOffset: { width: 1, height: 5 },
   },
   ImageContainer: {
     flex: 1,
@@ -51,6 +51,7 @@ const globals = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height:'100%',
+    zIndex: 1
   },
   Message: {
     fontSize: 60,
@@ -63,8 +64,28 @@ const globals = StyleSheet.create({
     backgroundColor: 'coral',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  TextBtn: {
+    backgroundColor: 'gold',
+    paddingHorizontal: 6,
+    paddingVertical: 6,
+    margin: 3,
+    shadowColor: '#fff',
+    shadowOpacity: 10,
+    shadowRadius: 15,
+    shadowOffset: { width: 1, height: 5 },
+    textAlign: 'center',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
+  Text: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 10
   }
-
 })
 
 export default globals;
