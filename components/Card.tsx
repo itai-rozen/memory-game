@@ -1,5 +1,5 @@
 import { View, Image, Text, Pressable } from 'react-native';
-import { imagesType } from '../images';
+import { imagesType } from '../types';
 import styles from './../styles';
 import FlipCard from 'react-native-flip-card';
 export default function Card({ cardObj, setCards, cards, pressable }:

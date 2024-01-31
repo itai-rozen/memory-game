@@ -1,9 +1,6 @@
 import { create } from "zustand";
+import { cardPairsStore } from "./types";
 
-type cardPairsStore = {
-  pairs : number,
-  setPairs: (n: number) => void,
-}
 
 export const useCardsPairStore = create<cardPairsStore>((set) => ({
     pairs: 10,

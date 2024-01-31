@@ -1,12 +1,11 @@
 import { Animated, View, Image, Pressable } from "react-native";
 import styles from './../styles'
-import { imagesType } from "../images";
+import { imagesType } from "../types";
 
 export default function CardTest({ cardObj, setCards, cards }: { cardObj: imagesType, cards: imagesType[], setCards: Function }) {
   const handleFlip = () => {
     if (cardObj.isMatched)
       return;
-    console.log('fkuo')
     const cardsCopy = cards.map(card => { return { ...card } })
     const updatedCards = cardsCopy.map(card => {
       if (card.id === cardObj.id) {
