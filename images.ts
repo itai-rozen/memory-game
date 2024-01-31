@@ -41,19 +41,25 @@ export const imagesArr  = [
     url: require('./assets/game-images/10.jpg'),
   },
 ]
-const doubleImages = [...imagesArr,...imagesArr]
-const cardObjects : imagesType[] = [];
-for (let i = 0; i < doubleImages.length; i++) {
-  const image = doubleImages[i].url
-  cardObjects.push({
-    url: image,
-    id: i,
-    isFlipped: false, 
-    isMatched: false
-  })
+
+export const getImages = (num : number) => {
+  const doubleImages = [...imagesArr.slice(0,num),...imagesArr.slice(0,num)]
+  const cardObjects : imagesType[] = [];
+  for (let i = 0; i < doubleImages.length; i++) {
+    const image = doubleImages[i].url
+    cardObjects.push({
+      url: image,
+      id: i,
+      isFlipped: false, 
+      isMatched: false
+    })
+  }
+
+  return cardObjects
 }
 
-export default  cardObjects
+
+// export default  cardObjects
 export const gameStatus: {fail: ImageSourcePropType,success: ImageSourcePropType, win: ImageSourcePropType}  = {
   fail: require('./assets/game-status/fail.png'),
   success: require('./assets/game-status/success.png'),
