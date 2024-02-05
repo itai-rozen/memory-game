@@ -31,7 +31,8 @@ const globals = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    borderRadius: 4
+    borderRadius: 4,
+    backgroundColor:'#fff'
   },
   Cards: {
     backgroundColor: 'purple',
@@ -51,7 +52,17 @@ const globals = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height:'100%',
-    zIndex: 1
+    zIndex: 1,
+  },
+  MessageWrapper: {
+    backgroundColor: '#000',
+    padding: 30,
+    borderRadius: 14,
+    borderWidth: 5,
+    borderColor: 'gold',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   Message: {
     fontSize: 60,
@@ -63,7 +74,7 @@ const globals = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: 'coral',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   TextBtn: {
     backgroundColor: 'gold',

@@ -1,4 +1,4 @@
-import {  Text, Image, Animated, Pressable } from "react-native";
+import {  Text, Image, Animated, Pressable, View } from "react-native";
 import { gameStatus } from "../images";
 import { messageType } from "../types";
 import styles from './../styles'
@@ -19,8 +19,8 @@ export default function Message({ msg, color, onInit, navigation }: {msg : messa
   }
  }, [])
 
- return <Animated.View style={[styles.MessageContainer, {transform: [{translateX: offsetX}]} ]}>
-
+ return <View style={styles.MessageContainer}>
+    <Animated.View style={[styles.MessageWrapper, {transform: [{translateX: offsetX}]}]}>
     <Text style={[styles.Message,{ color: color}]}>
       {msg}
     </Text>
@@ -31,5 +31,6 @@ export default function Message({ msg, color, onInit, navigation }: {msg : messa
         <Pressable style={styles.TextBtn} onPress={() => navigation.navigate('Home')} ><Text>Exit</Text></Pressable>
       </Animated.View>
     }
-  </Animated.View>
+    </Animated.View>
+  </View>
 }
