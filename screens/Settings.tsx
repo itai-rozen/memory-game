@@ -1,4 +1,4 @@
-import {  Pressable,  Text, View } from "react-native";
+import {  Pressable,  Text, View, ImageBackground } from "react-native";
 import styles from './../styles'
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { useCardsPairStore } from "../store";
@@ -8,9 +8,9 @@ import { imagesArr } from "../images";
 export default function Settings({ navigation }: { navigation: NavigationProp<ParamListBase>}) {
   const setPairs = useCardsPairStore(state => state.setPairs);
   const pairs = useCardsPairStore(state => state.pairs);
-  const options = imagesArr.map((img, i) => {
+  const options = imagesArr.map((_, i) => {
     return {
-      key: i + 1 + '',
+      key: i + 1,
       value: i + 1
     }
   })
