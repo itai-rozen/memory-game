@@ -2,16 +2,16 @@
 import type { imagesType, gameStatusType } from "./types";
 
 export const imagesArr  = [
-  {url: require('./assets/game-images/1.jpg')},
-  {url: require('./assets/game-images/2.jpg')},
-  {url: require('./assets/game-images/3.jpg')},
-  {url: require('./assets/game-images/4.jpg')},
-  {url: require('./assets/game-images/5.jpg')},
-  {url: require('./assets/game-images/6.jpg')},
-  {url: require('./assets/game-images/7.jpg')},
-  {url: require('./assets/game-images/8.jpg')},
-  {url: require('./assets/game-images/9.jpg')},
-  {url: require('./assets/game-images/10.jpg')},
+  {url: require('./assets/game-images/1.png')},
+  {url: require('./assets/game-images/2.png')},
+  {url: require('./assets/game-images/3.png')},
+  {url: require('./assets/game-images/4.png')},
+  {url: require('./assets/game-images/5.png')},
+  {url: require('./assets/game-images/6.png')},
+  {url: require('./assets/game-images/7.png')},
+  {url: require('./assets/game-images/8.png')},
+  {url: require('./assets/game-images/9.png')},
+  {url: require('./assets/game-images/10.png')},
 ]
 
 export const getImages = (num : number) => {
