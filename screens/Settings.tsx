@@ -3,14 +3,15 @@ import styles from './../styles'
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { useCardsPairStore } from "../store";
 import { SelectList } from "react-native-dropdown-select-list";
+import { imagesArr } from "../images";
 
 export default function Settings({ navigation }: { navigation: NavigationProp<ParamListBase>}) {
   const setPairs = useCardsPairStore(state => state.setPairs);
   const pairs = useCardsPairStore(state => state.pairs);
-  const options = [1,2,3,4,5,6,7,8,9,10].map((num) => {
+  const options = imagesArr.map((img, i) => {
     return {
-      key: num + '',
-      value: num
+      key: i + 1 + '',
+      value: i + 1
     }
   })
   return (
